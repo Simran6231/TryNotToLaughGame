@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TryNotToLaugh</title>
+    <link rel="stylesheet" href="app.css">
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+</head>
+
+<body>
+
+    <div id="landingScreen" class="screen active">
+
+        <video id="bgVideo" autoplay muted loop playsinline class="bg-video">
+            <source
+                src="frontVid/frontVid.mp4"
+                type="video/mp4">
+        </video>
+
+        <div class="video-overlay"></div>
+
+        <div class="start">
+            <div class="heading">
+                <h1 class="drop-text">
+                    <span style="--i:1">TRY</span>
+                    <span style="--i:2">NOT</span>
+                    <span style="--i:3">TO</span>
+                    <span style="--i:4">LAUGH</span>
+                </h1>
+                <p>“Click anywhere… then unmute. Trust me 😉🔊”</p>
+            </div>
+
+            <div class="button">
+                <button id="startBtn" type="button">Start Now!</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="setupScreen" class="screen">
+        <div class="leftImgs">
+            <div class="img">
+                <img src="images/img1.png" alt="laughter image" width="300px"
+                    height="300px">
+            </div>
+            <div class="img4">
+                <img src="images/img2.png"
+                    alt="laughter image">
+            </div>
+
+        </div>
+        <div class="setUp">
+            <div class="players">
+                <p>SELECT PLAYERS</p>
+                <button class="choice-btn" data-players="1">1 PLAYER</button>
+                <button class="choice-btn" data-players="2">2 PLAYER</button>
+            </div>
+            <div class="rounds">
+                <p>SELECT ROUNDS</p>
+                <button class="round-btn" data-rounds="5">5 ROUNDS</button>
+                <button class="round-btn" data-rounds="7">7 ROUNDS</button>
+                <button class="round-btn" data-rounds="10">10 ROUNDS</button>
+            </div>
+            <button id="continueBtn" disabled>Continue</button>
+        </div>
+        <div class="img3">
+            <img src="images/img3.png"
+                alt="laughter image">
+        </div>
+
+        <div class="img2">
+            <img src="images/img1.png" alt="laughter image" width="300px"
+                height="300px">
+        </div>
+
+    </div>
+
+
+    <div id="countdownScreen" class="screen">
+        <h1 id="count">3</h1>
+        <p>Get ready… don’t laugh 😏</p>
+    </div>
+
+    <div id="gameScreen" class="screen">
+        <div class="top-bar">
+            <span id="roundInfo">Round 1</span>
+            <span id="playerInfo">Player 1</span>
+        </div>
+
+        <div id="contentArea">
+            <!-- Meme image OR YouTube iframe will appear here -->
+        </div>
+
+        <video id="camera" autoplay muted playsinline></video>
+        <canvas id="faceCanvas"></canvas>
+
+        <p class="hint">Try not to smile 😐</p>
+    </div>
+
+    <div id="endScreen" class="screen">
+
+    <h1>Game Over 🎉</h1>
+
+    <div id="finalScores"></div>
+
+    <button id="playAgainBtn">Play Again</button>
+
+    <!-- PUT THE SUGGESTION BOX HERE -->
+    <div class="suggestion-box">
+
+        <h2>Got something funny to share? 😈</h2>
+        <p class="suggestion-subtext">
+            Upload a funny meme or video and it might appear in future rounds!
+        </p>
+
+        <div class="upload-area">
+
+            <label for="memeUpload" class="upload-label">
+                📂 Choose Meme / Video
+            </label>
+
+            <input
+                type="file"
+                id="memeUpload"
+                accept="image/*,video/*"
+                hidden>
+
+            <button id="uploadBtn" class="upload-btn">
+                Add To Content Pool
+            </button>
+
+        </div>
+
+        <p id="uploadMsg" class="upload-message"></p>
+
+    </div>
+
+</div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
