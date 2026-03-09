@@ -89,6 +89,21 @@ function switchScreen(from, to) {
   to.classList.add("active");
 }
 
+function showAlert(message) {
+  const alertBox = document.getElementById("customAlert");
+
+  if (!alertBox) return;
+
+  alertBox.innerText = message;
+  alertBox.style.display = "block";
+
+  clearTimeout(alertBox.timer);
+
+  alertBox.timer = setTimeout(() => {
+    alertBox.style.display = "none";
+  }, 2500);
+}
+
 startBtn.addEventListener("click", () => {
   bgVideo.pause();
   switchScreen(landingScreen, setupScreen);
@@ -310,7 +325,7 @@ function handleFace(results) {
 
   // if (!results.multiFaceLandmarks.length) return;
   if (!results.multiFaceLandmarks.length) {
-    alert("⚠ No face detected. Please position your face in front of the camera.");
+    showAlert("⚠ No face detected. Please position your face in front of the camera.");
     return;
   }
 
@@ -320,12 +335,12 @@ function handleFace(results) {
 
     // if (faces.length !== 1) return;
     if (faces.length === 0) {
-      alert("⚠ No face detected. Please position yourself in front of the camera.");
+      showAlert("⚠ No face detected. Please position yourself in front of the camera.");
       return;
     }
 
     if (faces.length > 1) {
-      alert("⚠ Only ONE player allowed in 1-Player mode.");
+      showAlert("⚠ Only ONE player allowed in 1-Player mode.");
       return;
     }
 
@@ -337,12 +352,12 @@ function handleFace(results) {
 
     // if (faces.length !== 2) return;
     if (faces.length < 2) {
-      alert("⚠ Two players required. Please ensure both faces are visible.");
+      showAlert("⚠ Two players required. Please ensure both faces are visible.");
       return;
     }
 
     if (faces.length > 2) {
-      alert("⚠ Only two players allowed in 2-Player mode.");
+      showAlert("⚠ Only two players allowed in 2-Player mode.");
       return;
     }
 
@@ -393,7 +408,7 @@ function evaluateSmile(lm, player) {
   const height = distance(topLip, bottomLip);
 
   if (!lm[61] || !lm[291] || !lm[13] || !lm[14]) {
-    alert("⚠ Face not clearly visible");
+    showAlert("⚠ Face not clearly visible");
     return;
   }
 
