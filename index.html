@@ -17,9 +17,7 @@
     <div id="landingScreen" class="screen active">
 
         <video id="bgVideo" autoplay muted loop playsinline class="bg-video">
-            <source
-                src="frontVid/frontVid.mp4"
-                type="video/mp4">
+            <source src="frontVid/frontVid.mp4" type="video/mp4">
         </video>
 
         <div class="video-overlay"></div>
@@ -42,15 +40,41 @@
 
     </div>
 
+    <div id="rulesScreen" class="screen">
+
+            <div class="rules-container">
+
+                <h1>Game Rules</h1>
+
+                <ul>
+                    <li>🎮 Select the number of <b>players</b>.</li>
+                    <li>🔢 Choose how many <b>rounds</b> you want to play.</li>
+                    <li>▶ Click <b>Continue</b> to begin the challenge.</li>
+                    <li>📷 Allow <b>camera and microphone</b> access.</li>
+                    <li>😂 If you <b>laugh or smile</b>, you get <b>0 points</b>.</li>
+                    <li>😐 Keep a straight face to earn <b>1 point</b>.</li>
+                    <li>👤 1-Player mode → only one face allowed.</li>
+                    <li>👥 2-Player mode → both faces must stay visible.</li>
+                    <li>🏆 Highest score at the end wins.</li>
+                </ul>
+
+                <p class="rules-warning">
+                    ⚠ The memes are funny… try your best not to laugh.
+                </p>
+
+                <button id="rulesContinueBtn">Continue</button>
+
+            </div>
+
+        </div>
+
     <div id="setupScreen" class="screen">
         <div class="leftImgs">
             <div class="img">
-                <img src="images/img1.png" alt="laughter image" width="300px"
-                    height="300px">
+                <img src="images/img1.png" alt="laughter image" width="300px" height="300px">
             </div>
             <div class="img4">
-                <img src="images/img2.png"
-                    alt="laughter image">
+                <img src="images/img2.png" alt="laughter image">
             </div>
 
         </div>
@@ -69,13 +93,11 @@
             <button id="continueBtn" disabled>Continue</button>
         </div>
         <div class="img3">
-            <img src="images/img3.png"
-                alt="laughter image">
+            <img src="images/img3.png" alt="laughter image">
         </div>
 
         <div class="img2">
-            <img src="images/img1.png" alt="laughter image" width="300px"
-                height="300px">
+            <img src="images/img1.png" alt="laughter image" width="300px" height="300px">
         </div>
 
     </div>
@@ -104,43 +126,44 @@
 
     <div id="endScreen" class="screen">
 
-    <h1>Game Over 🎉</h1>
+        <h1>Game Over 🎉</h1>
 
-    <div id="finalScores"></div>
+        <div id="finalScores"></div>
 
-    <button id="playAgainBtn">Play Again</button>
+        <button id="playAgainBtn">Play Again</button>
 
-    <!-- PUT THE SUGGESTION BOX HERE -->
-    <div class="suggestion-box">
+        <!-- PUT THE SUGGESTION BOX HERE -->
+        <div class="suggestion-box">
 
-        <h2>Got something funny to share? 😈</h2>
-        <p class="suggestion-subtext">
-            Upload a funny meme or video and it might appear in future rounds!
-        </p>
+            <h2>Got something funny to share? 😈</h2>
+            <p class="suggestion-subtext">
+                Upload a meme or video and it may appear in the next rounds!
+            </p>
 
-        <div class="upload-area">
+            <p class="session-note">
+                ⚠ Content you upload stays only for this game session.
+                Once the page refreshes, it disappears.
+            </p>
 
-            <label for="memeUpload" class="upload-label">
-                📂 Choose Meme / Video
-            </label>
+            <div class="upload-area">
 
-            <input
-                type="file"
-                id="memeUpload"
-                accept="image/*,video/*"
-                hidden>
+                <label for="memeUpload" class="upload-label">
+                    📂 Choose Meme / Video
+                </label>
 
-            <button id="uploadBtn" class="upload-btn">
-                Add To Content Pool
-            </button>
+                <input type="file" id="memeUpload" accept="image/*,video/*" hidden>
+
+                <button id="uploadBtn" class="upload-btn">
+                    Add To Content Pool
+                </button>
+
+            </div>
+
+            <p id="uploadMsg" class="upload-message"></p>
 
         </div>
 
-        <p id="uploadMsg" class="upload-message"></p>
-
     </div>
-
-</div>
 
     <script src="script.js"></script>
 

@@ -492,3 +492,56 @@ button:hover {
   border: 1px solid rgba(255,255,255,0.3);
   transition: opacity 0.3s ease;
 }
+
+#rulesScreen{
+  background: linear-gradient(90deg, #1e1e1e, #37235a, #1e1e1e);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.rules-container{
+
+  width:600px;
+  padding:35px;
+
+  border-radius:20px;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+
+  border:1px solid rgba(255,255,255,0.2);
+
+  color:white;
+
+  text-align:left;
+}
+
+.rules-container h1{
+  text-align:center;
+  margin-bottom:15px;
+}
+
+.rules-container ul{
+  line-height:1.7;
+  font-size:16px;
+}
+
+.rules-warning{
+  text-align:center;
+  margin-top:15px;
+}
+
+
+
+.session-note{
+
+  margin-top:10px;
+
+  font-size:13px;
+
+  opacity:0.8;
+
+  color:#ffdede;
+
+}

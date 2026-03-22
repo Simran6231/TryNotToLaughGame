@@ -18,6 +18,9 @@ const uploadMsg = document.getElementById("uploadMsg");
 
 const video = document.getElementById("camera");
 
+const rulesScreen = document.getElementById("rulesScreen");
+const rulesContinueBtn = document.getElementById("rulesContinueBtn");
+
 
 
 let faceMesh, cam;
@@ -106,7 +109,7 @@ function showAlert(message) {
 
 startBtn.addEventListener("click", () => {
   bgVideo.pause();
-  switchScreen(landingScreen, setupScreen);
+  switchScreen(landingScreen, rulesScreen);
 });
 
 document.querySelectorAll(".choice-btn").forEach(btn => {
@@ -141,16 +144,52 @@ function checkReady() {
   continueBtn.disabled = !(selectedPlayers && selectedRounds);
 }
 
-continueBtn.addEventListener("click", async () => {
+// continueBtn.addEventListener("click", async () => {
+
+//   gameMode = selectedPlayers;
+//   totalRounds = selectedRounds;
+
+//   await startMedia();
+
+//   switchScreen(setupScreen, countdownScreen);
+
+//   startCountdown();
+// });
+continueBtn.addEventListener("click", () => {
 
   gameMode = selectedPlayers;
   totalRounds = selectedRounds;
 
+  switchScreen(setupScreen, countdownScreen);
+  startCountdown()
+  
+
+});
+
+rulesContinueBtn.addEventListener("click", async () => {
+
+  try {
+
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video: true,
+      audio: true
+    });
+
+    video.srcObject = stream;
+
+  } catch (err) {
+
+    showAlert("⚠ Camera & microphone permission required!");
+    return;
+
+  }
+
   await startMedia();
 
-  switchScreen(setupScreen, countdownScreen);
+  switchScreen(rulesScreen, setupScreen);
 
-  startCountdown();
+  // startCountdown();
+
 });
 
 function startCountdown() {
@@ -433,12 +472,12 @@ function evaluateSmile(lm, player) {
 
 async function startMedia() {
 
-  const stream = await navigator.mediaDevices.getUserMedia({
-    video: true,
-    audio: true
-  });
+  // const stream = await navigator.mediaDevices.getUserMedia({
+  //   video: true,
+  //   audio: true
+  // });
 
-  video.srcObject = stream;
+  // video.srcObject = stream;
 
   faceMesh = new FaceMesh({
     locateFile: file =>
